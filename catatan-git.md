@@ -42,7 +42,7 @@ git branch -d halaman_login -> menghapus branch <br>
 git merger halaman_login -> mengabungan branch saat ini dengan halaman_login <br>
 
 
-GIT PULL AND GIT FETCH
+**GIT PULL AND GIT FETCH**
 
 • Perintah git pull akan mengambil commit terbaru lalu otomatis menggabungkan (merge) dengan branch yang aktif.<br>
 • Sedangkan git fetch akan mengambil commit saja. Perintah git fetch tidak akan langsung melakukan merge.<br>
