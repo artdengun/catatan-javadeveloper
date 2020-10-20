@@ -1,4 +1,4 @@
-#CATATAN SEPUTAR GIT
+# CATATAN SEPUTAR GIT
 ### Konfigurasi Awal ###
 
 git config --global user.name “Nama  User” <br>
