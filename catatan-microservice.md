@@ -117,5 +117,144 @@
                •  Ketika dikejar waktu, sehingga tidak ada waktu untuk bikin API
          
          
-         
-         
+☑ NoSQL
+    
+
+            Apa itu NoSQL? 
+               • NoSQL  bukanlah NO (TIDAK/BUKAN) SQL 
+               • NoSQL singkatan dari Not Only SQL   -> bukan hanya sql yang bisa dijadikan database, akan ada alternatif lain selain SQL
+    
+            Jenis-Jenis NoSQL 
+            
+            • Document Oriented Database  -> 
+            • Key-Value Database  -> basis memory / biasanya dilakukan untuk caching aplikasi
+            • Column Families  Database (Column oriented) 
+            • Graph Database -> digunakan untuk relasi komplek untuk sosial network 
+            • Search Database -> spesialis untuk searching , sangat kenceng 
+            • Time Series Database -> database berupa Timeseries
+            • dan Lain lain . 
+
+                        
+            
+            
+            Kenapa Butuh Tahu NoSQL? Penting banget . 
+            
+            • Agar bisa disesuaikan dengan kebutuhan  
+            • Bisa mencari alternatif cara mengolah data 
+            • Mempercepat dalam proses penulisan atau pencarian 
+      
+☑ Remote Procedure Invocation
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+☑ Messaging
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+☑ Type of Microservice
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+☑ Service Orchestration
+
+
+
+
+
+
+
+
+
+
+
+☑ Service Choreograhy
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+☑ API Gateway
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+☐ Authenticaton and Authorization
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
