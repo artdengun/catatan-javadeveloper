@@ -1,108 +1,74 @@
-Apache Kafka
-Deni gunawan, 01/01/0001, Message broker Kafka
-Apache Kafka merupakan platform terdistribusi untuk data streaming. Pada dasarnya, Apache Kafka merupakan sistem publish/subscribe messaging, dimana terdapat satu atau lebih sistem yang men-generate data untuk suatu topik tertentu secara real-time di Apache Kafka (disebut sebagai Producers). Kemudian, topik tersebut dapat dibaca oleh satu atau lebih sistem yang membutuhkan data-data dari topik tersebut secara real-time (disebut sebagai Consumers)
-
-Belajar Apache Kafka
+# Apache Kafka
 
 1. Tahap instalation
 
-- download file kafka dalam bentuk binary,
-
-
-
+- download file kafka dalam bentuk binary <br>
+    ```
     [https://downloads.apache.org/kafka/2.5.0/kafka_2.12-2.5.0.tgz](https://downloads.apache.org/kafka/2.5.0/kafka_2.12-2.5.0.tgz "https://downloads.apache.org/kafka/2.5.0/kafka_2.12-2.5.0.tgz")
-
-
-
-- Masuk ke folder download kemudian extract file 	
-
-
-
+    ```
+- Masuk ke folder download kemudian extract file 	<br>
+    ```
     tar -xzf kafka_2.12-2.5.0.tgz
-
-- masuk ke folder kafka kemudian edit config	
-
-    $ code config
-
-	
-
+    ```
+- masuk ke folder kafka kemudian edit config	 <br>
+    
     - EDIT Zooker. properties 
-
-		
-
-        dataDir=data/zookeeper   <- Edit seperti ini
-
-	
-
-    -EDIT server.properties
-
-        log.dirs=data/kafka	     <- Edit Seperti ini
-
-	
-
+    ```
+    dataDir=data/zookeeper   <- Edit seperti ini
+    ```
+    - EDIT server.properties
+    ```
+    log.dirs=data/kafka	     <- Edit Seperti ini
     Kemudian simpan. 
-
+    ```
  - Menjalankan zookeeper
+    ```
+     ./bin/zookeeper-server-start.sh config/zookeeper.properties
+     defaut properti 'localhost:2181'
+    ```
 
-	
-
-    ./bin/zookeeper-server-start.sh config/zookeeper.properties
-
-        defaut properti 'localhost:2181'
-
-		
-
-        *** Dalam Menjalankan Zookper akan muncul pesan error,
-
-            Karna zookper mencari parentnya Kafka server, jika sudah 					
-
-            jalan. maka pesan error akan hilang **
+     **Dalam Menjalankan Zookper akan muncul pesan error,
+     Karna zookper mencari parentnya Kafka server, jika sudah 					
+     jalan. maka pesan error akan hilang** 
 
 - Menjalankan Kafka server
-
-	
-
+    ```
     ./bin/kafka-server-start.sh config/server.properties
-
         default properti 'localhost:9092'
+    ```
 
 -  Tanda jika server kafka berjalan
-
-    INFO \[KafkaServer id=0\] started (kafka.server.KafkaServer)
-PEMBAHASAN
-
+    ```
+     INFO \[KafkaServer id=0\] started (kafka.server.KafkaServer)
+    ```
 2. Bekerja dengan direktori
 
-    -	Create Topic / table / file
+    -	Create Topic / table / file <br>
+        ```
+        bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+        ```  
+    -   melihat topic / table / file <br>
+        ```
+        bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+        ```
+    -	Send Message to Cosumers from producers <br>
+        ```
+        bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test
+        ```
+    - 	get/ hear Message From producers to Consumers File <br>
+        ```
+        bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+        ```
 
-		
+3. BEKERJA DENGAN KAFKA <br>
 
-            bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+      **<!!  SCRIPT PRODUCER  !!>**
+```java
+package com.deni.catatanjavaDeveloper;
 
-	
+public class BelajarKafkaProducer{
 
-    -	melihat topic / table / file
-
-	
-
-            bin/kafka-topics.sh --list --bootstrap-server localhost:9092
-
-    -	Send Message to Cosumers from producers
-
-            bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test
-
-    - 	get/ hear Message From producers to Consumers File
-
-
-
-            bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
-PEMBAHASAN
-
-3. BEKERJA DENGAN KAFKA
-
-        <!!  SCRIPT PRODUCER  !!>
-
-public static void main(String\[\] args) {
+public static void main(String[] args) {
 
     Properties properties = new Properties();
 
@@ -154,15 +120,15 @@ public static void main(String\[\] args) {
 
     // close jika data sudah dikirim
 
+    }
 }
-PEMBAHASAN
+```
 
-    <!!  SCRIPT CONSUMER  !!>
-public static voi ke 1 18
+   **<!!  SCRIPT CONSUMER  !!>**
 
-data ke 1 19
-
-d main(String[] args) {
+```java   
+public class BelajarKafkaConsumer{
+public static void main(String[] args) {
 
  Properties properties = new Properties();
 
@@ -225,6 +191,8 @@ d main(String[] args) {
     }
 
 }
+}
+```
 PEMBAHASAN
 
                 <!!  PARTITION REBELANCE !!>
